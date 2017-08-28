@@ -12,10 +12,6 @@ public class Attendee {
     }
 
     public String toString() {
-        return name + "(" + age + ")years";
-    }
-
-    public String getName() {
         return name;
     }
 }

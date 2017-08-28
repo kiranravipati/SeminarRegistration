@@ -18,6 +18,14 @@ public class InMemoryBookingsRepository implements BookingsRepository {
         return instance;
     }
 
+    public int countOfBookingsForSessionWithId(int sessionId) {
+        if (bookings.get(sessionId) == null) {
+            return 0;
+        } else {
+            return bookings.get(sessionId).size();
+        }
+    }
+
     // implementation for interface methods
     public ArrayList findBookingsBySessionId(int sessionId) {
         return bookings.get(sessionId);
@@ -31,14 +39,6 @@ public class InMemoryBookingsRepository implements BookingsRepository {
             bookings.put(sessionId, bookingsList);
         } else {
             bookings.get(sessionId).add(booking);
-        }
-    }
-
-    public int countOfBookingsForSessionWithId(int sessionId) {
-        if (bookings.get(sessionId) == null) {
-            return 0;
-        } else {
-            return bookings.get(sessionId).size();
         }
     }
 }

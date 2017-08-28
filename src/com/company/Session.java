@@ -3,15 +3,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Session {
-    int id;
-    String name;
-    Date conductedOn;
-    String timings;
-    String presenter;
-    int locationID;
+    private int id;
+    private String name;
+    private Date conductedOn;
+    private String timings;
+    private String presenter;
+    private int locationID;
 
-    BookingsRepository bookingsRepository;
-    LocationsRepository locationsRepository;
+    private BookingsRepository bookingsRepository;
+    private LocationsRepository locationsRepository;
 
     Session(int id, String name, Date conductedOn, String timings, String presenter, int locationID) {
         this.id = id;
@@ -62,8 +62,11 @@ public class Session {
     }
 
     public Location venue() {
-        Location location = locationsRepository.findById(this.locationID);
-        return location;
+        return locationsRepository.findById(this.locationID);
+    }
+
+    public String getName() {
+        return name;
     }
 }
 

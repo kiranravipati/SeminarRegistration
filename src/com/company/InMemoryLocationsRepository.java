@@ -16,6 +16,9 @@ public class InMemoryLocationsRepository implements LocationsRepository {
         return instance;
     }
 
+    // implementation of interface methods
+    @Override
+
     public Location findById(int locationId) {
         return locations.get(locationId);
     }
@@ -24,7 +27,14 @@ public class InMemoryLocationsRepository implements LocationsRepository {
         locations.put(location.id, location);
     }
 
-    public void removeLocation(Location location) {
+    public void createDefaultLocations() {
+        Location location = new Location("Abdul Kalam", "First", 30, 1);
+        addLocation(location);
 
+        location = new Location("Einstein", "Second", 50, 2);
+        addLocation(location);
+
+        location = new Location("Newton", "Third", 40, 3);
+        addLocation(location);
     }
 }

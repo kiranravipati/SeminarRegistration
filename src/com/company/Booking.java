@@ -13,7 +13,8 @@ public class Booking {
         return  sessionId;
     }
 
-    public int getAttendeeId() {
-       return attendeeId;
+    @Override
+    public String toString() {
+        return "Session ID:" + sessionId + "Attendee ID:" + attendeeId;
     }
 }

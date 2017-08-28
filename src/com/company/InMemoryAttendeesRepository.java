@@ -16,6 +16,19 @@ public class InMemoryAttendeesRepository implements AttendeesRepository {
         return instance;
     }
 
+    // Implement interface methods
+
+    public void saveAttendee(Attendee attendee) {
+        attendees.put(attendee.id, attendee);
+    }
+
+    public Attendee getRandomAttendee() {
+        Random rand = new Random();
+        int attendeesCount = attendees.size();
+        int randomAttendeeID = rand.nextInt(attendeesCount) + 1;
+        return attendees.get(randomAttendeeID);
+    }
+
     public void viewAllAttendees() {
         System.out.println("---------------------------------------");
         System.out.println("Attendees:");
@@ -33,20 +46,15 @@ public class InMemoryAttendeesRepository implements AttendeesRepository {
         System.out.println("---------------------------------------");
     }
 
-    // Implement interface methods
-    public Attendee findById(String attendeeID) {
-        return attendees.get(attendeeID);
-    }
+    public void createDefaultAttendees() {
+        Attendee attendee = new Attendee(1, "Mary Martin", 30 );
+        saveAttendee(attendee);
 
-    public void saveAttendee(Attendee attendee) {
-        attendees.put(attendee.id, attendee);
-    }
+        attendee = new Attendee(2,"John Donson", 28 );
+        saveAttendee(attendee);
 
-    public Attendee getRandomAttendee() {
-        Random rand = new Random();
-        int attendeesCount = attendees.size();
-        int randomAttendeeID = rand.nextInt(attendeesCount) + 1;
-        return attendees.get(randomAttendeeID);
+        attendee = new Attendee(3,"Smith Jones",35 );
+        saveAttendee(attendee);
     }
 }
 

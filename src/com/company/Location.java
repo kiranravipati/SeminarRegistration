@@ -15,6 +15,6 @@ public class Location {
 
     @Override
     public String toString() {
-        return String.format("%s %s", roomName, floorNumber);
+        return String.format("%s, %s floor", roomName, floorNumber);
     }
 }
